@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	conn, err := net.Dial("tcp", "localhost:9000")
+	conn, err := net.Dial("tcp", "localhost:3000")
 	if err != nil {
 		log.Fatalf("Error connecting to server: %v", err)
 	}

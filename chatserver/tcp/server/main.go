@@ -14,7 +14,7 @@ import (
 
 const (
 	maxMessageSize   = 1024
-	inactivityPeriod = 30 * time.Second
+	inactivityPeriod = 60 * time.Second
 	logDir           = "client_logs"
 )
 
@@ -131,19 +131,19 @@ func handleConnection(conn net.Conn, server *Server) {
 
 			switch input {
 			case "":
-				conn.Write([]byte("Wassup...\n"))
-			case "GIMME 3":
-				conn.Write([]byte("Brrrrrrrrrrrr!\n"))
+				conn.Write([]byte("yolo...\n"))
+			case "ohhh ":
+				conn.Write([]byte("u messedup!\n"))
 			case "bye", "/quit":
-				conn.Write([]byte("Later!\n"))
+				conn.Write([]byte("later aligator!\n"))
 				done <- true
 				return
 			case "/time":
 				conn.Write([]byte(time.Now().Format(time.RFC1123) + "\n"))
 			case "/date":
-				conn.Write([]byte(time.Now().Format("2006-01-02") + "\n"))
-			case "/joke":
-				conn.Write([]byte("If you wanted a joke you should have made one yourself\n"))
+				conn.Write([]byte(time.Now().Format("2005-01-02") + "\n"))
+			case "/nocknock":
+				conn.Write([]byte("who their?,go study\n"))
 			case "/clients":
 				clientCountLock.Lock()
 				count := clientCount
@@ -154,7 +154,7 @@ func handleConnection(conn net.Conn, server *Server) {
 					"/echo [message] - Echoes back your message\n" +
 					"/time - Shows current server time\n" +
 					"/date - Shows current server date\n" +
-					"/joke - Tells a joke\n" +
+					"/nocknock - Tells you to go study\n" +
 					"/clients - Number of connected clients\n" +
 					"/quit or bye - Disconnects you\n"))
 			default:
@@ -195,7 +195,7 @@ func logEvent(message string) {
 }
 
 func main() {
-	port := "9000"
+	port := "3000"
 	listener, err := net.Listen("tcp", ":"+port)
 	if err != nil {
 		log.Fatalf("Error starting TCP server: %v", err)

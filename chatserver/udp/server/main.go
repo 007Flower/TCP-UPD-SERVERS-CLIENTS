@@ -11,7 +11,7 @@ import (
 
 const (
 	udpBufferSize    = 2048
-	inactivityPeriod = 30 * time.Second
+	inactivityPeriod = 60 * time.Second
 )
 
 type UDPClient struct {
@@ -139,7 +139,7 @@ func (s *UDPServer) cleanupInactiveClients() {
 }
 
 func main() {
-	port := "9001"
+	port := "3001"
 	server, err := NewUDPServer(port)
 	if err != nil {
 		log.Fatalf("Failed to start UDP server: %v", err)

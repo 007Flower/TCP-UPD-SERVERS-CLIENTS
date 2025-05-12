@@ -1,8 +1,7 @@
 # TCP-UPD-SERVERS-CLIENTS
 
 # Go Chat Server Project
-https://www.youtube.com/watch?v=fzW6bC9AXPQ
-
+https://youtu.be/HbKNYdQyqQo
 This project contains TCP and UDP chat servers and clients implemented in Go.
 
 ## Files
